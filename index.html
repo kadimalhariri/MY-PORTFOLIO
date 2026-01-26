@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kadim Al Hariri - Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Custom smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animation classes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Card hover effects */
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Nav link hover effect */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    
+    <!-- Header / Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="text-2xl font-bold text-blue-600">
+                    Kadim Al Hariri
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link font-medium">Home</a>
+                    <a href="#skills" class="nav-link font-medium">Skills</a>
+                    <a href="#projects" class="nav-link font-medium">Projects</a>
+                    <a href="#studies" class="nav-link font-medium">Studies</a>
+                    <a href="#certifications" class="nav-link font-medium">Certifications</a>
+                    <a href="#contact" class="nav-link font-medium">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block px-4 py-2 hover:bg-gray-100 rounded-lg">Home</a>
+                <a href="#skills" class="block px-4 py-2 hover:bg-gray-100 rounded-lg">Skills</a>
+                <a href="#projects" class="block px-4 py-2 hover:bg-gray-100 rounded-lg">Projects</a>
+                <a href="#studies" class="block px-4 py-2 hover:bg-gray-100 rounded-lg">Studies</a>
+                <a href="#certifications" class="block px-4 py-2 hover:bg-gray-100 rounded-lg">Certifications</a>
+                <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 rounded-lg">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+        
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-20">
+            <div class="container mx-auto max-w-4xl text-center fade-in">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Hi, I'm Kadim Al Hariri
+                </h1>
+                
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8">
+                    MERN Stack Developer
+                </h2>
+                
+                <p class="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+                    Passionate about creating elegant, efficient, and user-friendly web applications. 
+                    I specialize in modern JavaScript technologies and love turning complex problems 
+                    into simple, beautiful designs.
+                </p>
+                
+                <a href="#projects" class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                    View My Projects
+                    <i class="fas fa-arrow-down ml-3 animate-bounce"></i>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="bg-white px-4 md:px-8 lg:px-16 py-12 md:py-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Skills & Technologies</h2>
+                    <p class="text-lg md:text-xl text-gray-600">Technologies I work with daily</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 md:gap-8">
+                    <!-- FIXED: Each skill card now has centered content -->
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-100 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-git-alt text-5xl text-orange-500 mb-4"></i>
+                        <h3 class="font-semibold text-lg">Git</h3>
+                    </div>
+                    
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-200 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-github text-5xl text-gray-800 mb-4"></i>
+                        <h3 class="font-semibold text-lg">GitHub</h3>
+                    </div>
+                    
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-300 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-html5 text-5xl text-orange-500 mb-4"></i>
+                        <h3 class="font-semibold text-lg">HTML5</h3>
+                    </div>
+                    
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-100 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-css3-alt text-5xl text-blue-500 mb-4"></i>
+                        <h3 class="font-semibold text-lg">CSS3</h3>
+                    </div>
+                    
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-200 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-css3-alt text-5xl text-teal-400 mb-4"></i>
+                        <h3 class="font-semibold text-lg">Tailwind</h3>
+                    </div>
+                    
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-300 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-js-square text-5xl text-yellow-500 mb-4"></i>
+                        <h3 class="font-semibold text-lg">JavaScript</h3>
+                    </div>
+                    
+                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg transition-all duration-300 slide-up delay-100 flex flex-col items-center justify-center text-center">
+                        <i class="fab fa-react text-5xl text-blue-400 mb-4"></i>
+                        <h3 class="font-semibold text-lg">React.js</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="px-4 md:px-8 lg:px-16 py-12 md:py-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Mini Projects</h2>
+                    <p class="text-lg md:text-xl text-gray-600">A collection of my recent work</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                    <!-- Project Cards - 2 rows of 4 cards = 8 total -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 slide-up delay-100">
+                        <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold opacity-80">E</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Hello</h3>
+                            <a href="https://kadimalhariri.github.io/hello/" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-300">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 slide-up delay-200">
+                        <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold opacity-80">T</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Bostorek</h3>
+                            <a href="https://kadimalhariri.github.io/Bostorek/" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-300">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 slide-up delay-300">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-400 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold opacity-80">W</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Camp</h3>
+                            <a href="https://kadimalhariri.github.io/CAMP/" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-300">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 slide-up delay-100">
+                        <div class="h-48 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold opacity-80">C</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Fish-chips</h3>
+                            <a href="https://kadimalhariri.github.io/fish-ships/" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-300">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Studies Section -->
+        <section id="studies" class="bg-white px-4 md:px-8 lg:px-16 py-12 md:py-20">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Education & Learning Journey</h2>
+                    <div class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-full mb-4">
+                        <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 shadow-xl slide-up">
+                    <div class="flex items-start space-x-4 mb-8">
+                        <div class="p-3 bg-blue-100 rounded-lg">
+                            <i class="fas fa-book-open text-xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Web Development at GOMYCODE</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Currently pursuing comprehensive Python training at GOMYCODE.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 bg-purple-100 rounded-lg">
+                            <i class="fas fa-lightbulb text-xl text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">My Learning Path</h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                My journey involves hands-on projects, collaborative coding, and continuous learning. 
+                                I'm passionate about mastering the MERN stack (MongoDB, Express.js, React, Node.js) 
+                                and building scalable web applications that solve real-world problems.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-4">
+                            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                                Frontend Development
+                            </span>
+                            <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                                Backend Development
+                            </span>
+                            <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                                Mern Stack
+                            </span>
+                            <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
+                                Python
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="px-4 md:px-8 lg:px-16 py-12 md:py-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Certifications</h2>
+                    <p class="text-lg md:text-xl text-gray-600">Professional certifications and achievements</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-100 slide-up delay-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="p-2 bg-blue-100 rounded-lg">
+                                    <i class="fas fa-certificate text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Full-Stack Web Development</h3>
+                                    <p class="text-blue-600 font-medium">GOMYCODE</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                2024
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Comprehensive MERN stack development certification
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-100 slide-up delay-200">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="p-2 bg-blue-100 rounded-lg">
+                                    <i class="fas fa-certificate text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Python Essentials</h3>
+                                    <p class="text-blue-600 font-medium">GOMYCODE</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                2026
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Advanced React patterns and best practices
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-100 slide-up delay-300">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="p-2 bg-blue-100 rounded-lg">
+                                    <i class="fas fa-certificate text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Introduction to Web Development with AI skills</h3>
+                                    <p class="text-blue-600 font-medium">GOMYCODE</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                2026
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Mastery of JavaScript fundamentals and data structures
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-100 slide-up delay-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="p-2 bg-blue-100 rounded-lg">
+                                    <i class="fas fa-certificate text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Responsive Web Design</h3>
+                                    <p class="text-blue-600 font-medium">freeCodeCamp</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                2023
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Modern CSS and responsive layout techniques
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white px-4 md:px-8 lg:px-16 py-12 md:py-20">
+            <div class="container mx-auto max-w-3xl text-center">
+                <div class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-full mb-6">
+                    <i class="fas fa-comments text-2xl text-blue-600"></i>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Let's Build Something Amazing Together</h2>
+                
+                <p class="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed">
+                    I'm always open to discussing new opportunities, interesting projects, 
+                    or just chatting about technology and web development.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
+                    <a href="mailto:kadimhariri3@gmail.com" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Send Email
+                    </a>
+                    
+                    <a href="tel:+212 691 894 371" class="inline-flex items-center px-6 py-3 bg-gray-100 hover:bg-gray-200 font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-phone mr-3"></i>
+                        Call Now
+                    </a>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-gray-200">
+                    <p class="text-gray-600">
+                        Response time: Usually within 24 hours
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold mb-2">Kadim Al Hariri</h3>
+                    <p class="text-gray-400">MERN Stack Developer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/kadimalhariri" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kadim-al-hariri-8101a6256/" target="_blank" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:kadimhariri3@gmail.com" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+1234567890" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">
+                        Email: <a href="mailto:kadimhariri3@gmail.com" class="hover:text-white">kadimhariri3@gmail.com</a>
+                    </p>
+                    <p class="text-gray-400">
+                        Phone: <a href="tel:+212 691 894 371" class="hover:text-white">+212 691 894 371</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400">
+                    © 2026 Kadim Al Hariri. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Change icon
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    }
+                });
+            }
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements with animation classes
+            document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
+            
+            // Simple scroll effect for header
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
